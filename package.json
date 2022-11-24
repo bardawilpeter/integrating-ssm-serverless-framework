@@ -1,0 +1,17 @@
+{
+  "name": "serverless-ssm-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "devDependencies": {
+    "serverless-offline": "^11.1.3"
+  },
+  "scripts": {
+    "serve": "serverless offline",
+    "deploy:env": "sls deploy --stage $NODE_ENV",
+    "deploy:dev": "NODE_ENV=dev yarn deploy:env",
+    "deploy:production": "NODE_ENV=production yarn deploy:env"
+  },
+  "author": "",
+  "license": "ISC"
+}

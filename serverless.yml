@@ -1,0 +1,24 @@
+service: ssm-serverless-framework
+
+frameworkVersion: '3'
+
+provider:
+  stage: ${opt:stage, "dev"}
+  name: aws
+  runtime: nodejs14.x
+  environment: ${file(./env.${self:provider.stage}.yml)}
+
+custom:
+  serverless-offline:
+    httpPort: 4000
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - http:
+          path: hello
+          method: get
+
+plugins:
+  - serverless-offline
